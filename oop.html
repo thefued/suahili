@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+  <script>
+    class AirCraft {
+      constructor(name) {
+      this.name = name;
+      this.position = 'land';
+      }
+      Start() {
+        if (this.position == 'land') {
+          this.position = 'air';
+        }
+        else {
+          alert('Самолет ' + this.name + ' не на земле');
+        }
+      }
+      Stop() {
+        if (this.position == 'air') {
+          this.position = 'land';
+        }
+        else {
+          alert('Самолет ' + this.name + ' не в воздухе');
+        }
+    }
+    }
+    class Mig extends AirCraft {
+      constructor() {
+      super(...arguments);
+      this.attackI = 'off';
+      }
+      Attack() {
+        this.attackI = 'on';
+      }
+    }
+    var mig = new Mig('МИГ');
+    var tu = new AirCraft('ТУ-154');
+    tu.Start();
+    mig.Start();
+    alert(mig.attackI);
+    mig.Attack();
+    alert(mig.attackI);
+    tu.Start();
+    mig.Stop();
+    tu.Stop();
+    mig.Stop();
+    tu.Stop();
+  </script>
+
+</body>
+
+</html>
